@@ -1,5 +1,6 @@
 Wii-Mii.o: \
  C:/Users/storm/Documents/Hacknotts/testing/Wii-Mii/source/Wii-Mii.cpp \
+ C:/devkitPro/portlibs/wii/include/grrlib.h \
  C:/devkitPro/libogc/include/gccore.h \
  C:/devkitPro/libogc/include/ogc/dsp.h \
  C:/devkitPro/libogc/include/gctypes.h \
@@ -62,11 +63,21 @@ Wii-Mii.o: \
  C:/devkitPro/libogc/include/ogc/mutex.h \
  C:/devkitPro/libogc/include/ogc/system.h \
  C:/devkitPro/libogc/include/ogc/wiilaunch.h \
+ C:/devkitPro/portlibs/wii/include/grrlib/GRRLIB__lib.h \
+ C:/devkitPro/portlibs/wii/include/grrlib/GRRLIB__inline.h \
+ C:/devkitPro/portlibs/wii/include/grrlib/GRRLIB_clipping.h \
+ C:/devkitPro/portlibs/wii/include/grrlib/GRRLIB_collision.h \
+ C:/devkitPro/portlibs/wii/include/grrlib/GRRLIB_fbComplex.h \
+ C:/devkitPro/portlibs/wii/include/grrlib/GRRLIB_fbGX.h \
+ C:/devkitPro/portlibs/wii/include/grrlib/GRRLIB_fbSimple.h \
+ C:/devkitPro/portlibs/wii/include/grrlib/GRRLIB_handle.h \
+ C:/devkitPro/portlibs/wii/include/grrlib/GRRLIB_pixel.h \
+ C:/devkitPro/portlibs/wii/include/grrlib/GRRLIB_settings.h \
+ C:/devkitPro/portlibs/wii/include/grrlib/GRRLIB_texSetup.h \
  C:/devkitPro/libogc/include/wiiuse/wpad.h \
  C:/devkitPro/libogc/include/wiiuse/wiiuse.h \
  C:/devkitPro/libogc/include/bte/bte.h \
  C:/devkitPro/libogc/include/bte/bd_addr.h \
- C:/devkitPro/libogc/include/ogc/tpl.h \
  C:/devkitPro/libogc/include/network.h \
  C:/devkitPro/libogc/include/sys/socket.h \
  C:/devkitPro/libogc/include/sys/_iovec.h \
@@ -81,8 +92,9 @@ Wii-Mii.o: \
  C:/devkitPro/libogc/include/gctypes.h \
  C:/devkitPro/libogc/include/ogc/if_config.h \
  C:/devkitPro/libogc/include/ogc/isfs.h \
- C:/Users/storm/Documents/Hacknotts/testing/Wii-Mii/build/textures_tpl.h \
- C:/Users/storm/Documents/Hacknotts/testing/Wii-Mii/build/textures.h
+ C:/Users/storm/Documents/Hacknotts/testing/Wii-Mii/build/font_ttf.h \
+ C:/Users/storm/Documents/Hacknotts/testing/Wii-Mii/build/logo_png.h
+C:/devkitPro/portlibs/wii/include/grrlib.h:
 C:/devkitPro/libogc/include/gccore.h:
 C:/devkitPro/libogc/include/ogc/dsp.h:
 C:/devkitPro/libogc/include/gctypes.h:
@@ -145,11 +157,21 @@ C:/devkitPro/libogc/include/ogc/usbstorage.h:
 C:/devkitPro/libogc/include/ogc/mutex.h:
 C:/devkitPro/libogc/include/ogc/system.h:
 C:/devkitPro/libogc/include/ogc/wiilaunch.h:
+C:/devkitPro/portlibs/wii/include/grrlib/GRRLIB__lib.h:
+C:/devkitPro/portlibs/wii/include/grrlib/GRRLIB__inline.h:
+C:/devkitPro/portlibs/wii/include/grrlib/GRRLIB_clipping.h:
+C:/devkitPro/portlibs/wii/include/grrlib/GRRLIB_collision.h:
+C:/devkitPro/portlibs/wii/include/grrlib/GRRLIB_fbComplex.h:
+C:/devkitPro/portlibs/wii/include/grrlib/GRRLIB_fbGX.h:
+C:/devkitPro/portlibs/wii/include/grrlib/GRRLIB_fbSimple.h:
+C:/devkitPro/portlibs/wii/include/grrlib/GRRLIB_handle.h:
+C:/devkitPro/portlibs/wii/include/grrlib/GRRLIB_pixel.h:
+C:/devkitPro/portlibs/wii/include/grrlib/GRRLIB_settings.h:
+C:/devkitPro/portlibs/wii/include/grrlib/GRRLIB_texSetup.h:
 C:/devkitPro/libogc/include/wiiuse/wpad.h:
 C:/devkitPro/libogc/include/wiiuse/wiiuse.h:
 C:/devkitPro/libogc/include/bte/bte.h:
 C:/devkitPro/libogc/include/bte/bd_addr.h:
-C:/devkitPro/libogc/include/ogc/tpl.h:
 C:/devkitPro/libogc/include/network.h:
 C:/devkitPro/libogc/include/sys/socket.h:
 C:/devkitPro/libogc/include/sys/_iovec.h:
@@ -164,5 +186,5 @@ C:/devkitPro/libogc/include/netdb.h:
 C:/devkitPro/libogc/include/gctypes.h:
 C:/devkitPro/libogc/include/ogc/if_config.h:
 C:/devkitPro/libogc/include/ogc/isfs.h:
-C:/Users/storm/Documents/Hacknotts/testing/Wii-Mii/build/textures_tpl.h:
-C:/Users/storm/Documents/Hacknotts/testing/Wii-Mii/build/textures.h:
+C:/Users/storm/Documents/Hacknotts/testing/Wii-Mii/build/font_ttf.h:
+C:/Users/storm/Documents/Hacknotts/testing/Wii-Mii/build/logo_png.h:

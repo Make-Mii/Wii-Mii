@@ -23,29 +23,23 @@ include $(DEVKITPPC)/wii_rules
 TARGET		:=	$(notdir $(CURDIR))
 BUILD		:=	build
 SOURCES		:=	source
-DATA		:=
-TEXTURES	:=	textures
-INCLUDES	:=
+DATA		:=	data
+INCLUDES	:=	include
 
 #---------------------------------------------------------------------------------
 # options for code generation
 #---------------------------------------------------------------------------------
-
-CFLAGS	= -g -O2 -Wall $(MACHDEP) $(INCLUDE)
+CFLAGS		=	-g -O2 -Wall $(MACHDEP) $(INCLUDE)
 CXXFLAGS	=	$(CFLAGS)
+LDFLAGS		=	-g $(MACHDEP) -Wl,-Map,$(notdir $@).map
 
-LDFLAGS	=	-g $(MACHDEP) -Wl,-Map,$(notdir $@).map
-
-#---------------------------------------------------------------------------------
-# any extra libraries we wish to link with the project
-#---------------------------------------------------------------------------------
-LIBS	:=	-lgrrlib -lfreetypegx -lfat -lwiiuse -lbte -lgx -logc -lm
+LIBS	:=	-lgrrlib -lfreetype -lbz2 -lbrotlidec -lbrotlicommon -lpngu -lpng -ljpeg -lz -lfat -lwiiuse -lbte -logc -lm
 
 #---------------------------------------------------------------------------------
 # list of directories containing libraries, this must be the top level containing
 # include and lib
 #---------------------------------------------------------------------------------
-LIBDIRS	:=
+LIBDIRS		:=	$(PORTLIBS) $(DEVKITPRO)/portlibs/wii $(DEVKITPRO)/portlibs/ppc $(LIBOGC_DIR)
 
 #---------------------------------------------------------------------------------
 # no real need to edit anything past this point unless you need to add additional
@@ -59,7 +53,6 @@ export OUTPUT	:=	$(CURDIR)/$(TARGET)
 export VPATH	:=	$(foreach dir,$(SOURCES),$(CURDIR)/$(dir)) \
 					$(foreach dir,$(DATA),$(CURDIR)/$(dir)) \
 					$(foreach dir,$(TEXTURES),$(CURDIR)/$(dir))
-					
 
 export DEPSDIR	:=	$(CURDIR)/$(BUILD)
 
@@ -83,11 +76,11 @@ else
 	export LD	:=	$(CXX)
 endif
 
-export OFILES_BIN	:=	$(addsuffix .o,$(BINFILES)) $(addsuffix .o,$(TPLFILES))
-export OFILES_SOURCES := $(CPPFILES:.cpp=.o) $(CFILES:.c=.o) $(sFILES:.s=.o) $(SFILES:.S=.o)
-export OFILES := $(OFILES_BIN) $(OFILES_SOURCES)
+export OFILES_BIN		:=	$(addsuffix .o,$(BINFILES)) $(addsuffix .o,$(TPLFILES))
+export OFILES_SOURCES	:=	$(CPPFILES:.cpp=.o) $(CFILES:.c=.o) $(sFILES:.s=.o) $(SFILES:.S=.o)
+export OFILES			:=	$(OFILES_BIN) $(OFILES_SOURCES)
 
-export HFILES := $(addsuffix .h,$(subst .,_,$(BINFILES))) $(addsuffix .h,$(subst .,_,$(TPLFILES)))
+export HFILES			:=	$(addsuffix .h,$(subst .,_,$(BINFILES))) $(addsuffix .h,$(subst .,_,$(TPLFILES)))
 
 #---------------------------------------------------------------------------------
 # build a list of include paths
@@ -131,19 +124,23 @@ $(OUTPUT).elf: $(OFILES)
 $(OFILES_SOURCES) : $(HFILES)
 
 #---------------------------------------------------------------------------------
-# This rule links in binary data with the .bin extension
+# This rule links in binary data with the .bin, .tpl, .png, and .ttf extensions
 #---------------------------------------------------------------------------------
-%.bin.o	:	%.bin
-#---------------------------------------------------------------------------------
-	@echo $(notdir $<)
-	$(bin2o)
-
-#---------------------------------------------------------------------------------
-%.tpl.o	%_tpl.h :	%.tpl
-#---------------------------------------------------------------------------------
+%.bin.o	%_bin.h :	%.bin
 	@echo $(notdir $<)
 	@$(bin2o)
 
+%.tpl.o	%_tpl.h :	%.tpl
+	@echo $(notdir $<)
+	@$(bin2o)
+
+%.png.o	%_png.h :	%.png
+	@echo $(notdir $<)
+	@$(bin2o)
+
+%.ttf.o	%_ttf.h :	%.ttf
+	@echo $(notdir $<)
+	@$(bin2o)
 
 -include $(DEPSDIR)/*.d
 
